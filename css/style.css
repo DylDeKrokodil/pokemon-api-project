@@ -1,6 +1,10 @@
 html, body{
     font-family: 'Roboto', sans-serif;
 }
+a {
+    text-decoration: none;
+    color: #fff;
+}
 .container-fluid {
     width: 90%;
 }
@@ -9,3 +13,15 @@ html, body{
     top: 50%;
     transform: translateY(-50%);
 }
+
+/* == MENU BAR == */
+.main-nav {
+    background-color: aqua;
+    padding: 20px 0px 20px 0px;
+}
+.menu-header-container li {
+    display: inline-block;
+    margin: 0px 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@100&display=swap');
