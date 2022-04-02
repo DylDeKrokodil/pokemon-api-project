@@ -2,7 +2,7 @@
   "name": "pokemon-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "dyldekrokodil.github.io",
+  "homepage": "https://dyldekrokodil.github.io/pokemon-api-project/",
   "dependencies": {
     "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.3",
