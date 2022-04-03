@@ -1,26 +1,32 @@
-import { useEffect } from "react";
-
-// 1c6b4ec4
-
-const API_URL = 'https://www.omdbapi.com?apikey=1c6b4ec4';
+import { Link } from 'react-router-dom';
 
 const App = () => {
 
-    const searchMovies = async (title) => {
-        const response = await fetch(`${API_URL}&s=${title}`);
-        const data = await response.json();
-        
-        console.log(data.Search);
-    }
-    
-    useEffect(() => {
-        searchMovies('Spiderman');
-    },[])
-
-
-    return(
-        <h1>App</h1>
-    );
+    return (
+        <>
+            <nav className='navbar'>
+                <div className='container-fluid'>
+                    <div className='navbar-container'>
+                        <div className='navbar-logo'>
+                            <Link to="/">
+                                <img src="#" alt="Logo"></img>
+                            </Link>
+                        </div>
+                        <div className='navbar-content'>
+                            <ul>
+                                <li>
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li>
+                                    <Link to="/pokedex">Pokedex</Link>
+                                </li>
+                            </ul>
+                        </div>      
+                    </div>
+                </div>
+            </nav>
+        </>
+      );
 }
 
 export default App;
