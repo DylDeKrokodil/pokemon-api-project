@@ -7,6 +7,8 @@ import Pokedex from './routes/pokedex';
 
 import './css/main.css';
 import './css/header.css';
+import './css/pokemon-link.css';
+
 
 ReactDOM.render(
   <BrowserRouter>

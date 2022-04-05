@@ -1,38 +1,34 @@
 import { useEffect, useState } from "react";
 import PokemonLink from "../PokemonLink";
-import '../css/pokemon-link.css'
-
-
-let LIMIT = 50;
-let OFFSET = 0;
-const URL = `https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}&limit=${LIMIT}`;
 
 const Pokedex = () => {
+    const [count, setCount] = useState();
+    const [nextUrl, setNextUrl] = useState(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=50`);
+    const [previousUrl, setPreviousUrl] = useState(null);
     const [pokemonData, setPokemonData] = useState([]);
 
     const getPokemon = async () => {
-        const response = await fetch(`${URL}`);
+        const response = await fetch(`${nextUrl}`);
         const data = await response.json();
-
-        // console.log(data.results);
+        
+        setNextUrl(data.next);
+        setPreviousUrl(data.previous);
+        setCount(data.count);
         setPokemonData(data.results);
+
     }
     useEffect(() => {
         getPokemon();
     },[])
-
-    const Next = () => {
-        const [next, setNext] = useState({});
-
-        const getUrl = async () => {
-            const response = await fetch(`${URL}`);
-            const data = await response.json();
-
-            console.log(data.next);
-            setNext(data.next);
+    
+    const getNext = () => {
+        if(nextUrl == null){
+            alert(`There is no more pokemon to display`);
+        } else {
+            getPokemon();
         }
-        getUrl();
     } 
+
     return (
         <main>
             <div className="container-fluid">
@@ -47,7 +43,7 @@ const Pokedex = () => {
                         <div className="empty"><h1>No pokemon found!</h1></div>
                     )
                 }
-                <button onClick={Next}>Load More</button>
+                <button onClick={getNext}>Get Next Pokemon</button>
             </div>
         </main>
     )
