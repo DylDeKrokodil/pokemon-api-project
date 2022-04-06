@@ -5,27 +5,29 @@ const PokemonLink = ({ pokemon }) => {
 
     const pokemonUrl = pokemon.url
     const [pokemonImage, setPokemonImage] = useState();
-
-    const getPokemonImage = async () => {
+    const [pokemonId, setPokemonId] = useState();
+    
+    const getPokemonData = async () => {
         const response = await fetch(pokemonUrl);
         const data = await response.json();
-        setPokemonImage(data.sprites.front_default);
+        setPokemonImage(data.sprites.other.home.front_default);
+        setPokemonId(data.id);
     }
     useEffect(() => {
-        getPokemonImage();
-    },[])
+        getPokemonData();
+    })
 
     return(
         <div className="col-xl-2 col-md-3 col-4">
             <div className="pokemon-outer">
                 <div className="row">
                     <div className="col-xl-6 col-md-12 col-12">
-                        <div className="valign">
-                            <Link to={pokemon.name}>{pokemon.name}</Link>   
-                        </div>
+                        <img className="pokemon-image" alt={pokemon.name} src={pokemonImage}></img>
                     </div>
                     <div className="col-xl-6 col-md-12 col-12">
-                        <img src={pokemonImage}></img>
+                        <div className="valign">
+                            <Link to={`/pokedex/${pokemonId}`} key={pokemonId}>{pokemon.name}</Link>   
+                        </div>
                     </div>
                 </div>
             </div>

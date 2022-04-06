@@ -1,3 +1,7 @@
 .pokemon-outer {
-    /* border: 1px solid #000; */
+    margin-bottom: 1rem;
+}
+.pokemon-image {
+    width: 100px;
+    height: 100px;
 }
