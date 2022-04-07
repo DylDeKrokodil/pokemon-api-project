@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const App = () => {
 
@@ -8,18 +8,18 @@ const App = () => {
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col-xl-3 col-md-2 col-2'>
-                            <Link to="/">
+                            <NavLink to="/">
                                 <img src="#" alt="Logo"></img>
-                            </Link>
+                            </NavLink>
                         </div>
                         <div className='col-xl-9 col-md-10 col-10 text-end'>
                             <div className='text-end valign'>
                                 <ul className='menu'>
                                     <li className='menu-item'>
-                                        <Link to="/">Home</Link>
+                                        <NavLink to="/">Home</NavLink>
                                     </li>
-                                    <li className=''>
-                                        <Link to="/pokedex">Pokedex</Link>
+                                    <li className='menu-item'>
+                                        <NavLink to="/pokedex">Pokedex</NavLink>
                                     </li>
                                 </ul>
                             </div>

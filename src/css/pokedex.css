@@ -1,0 +1,22 @@
+.pokedex {
+    margin-top: 3rem;
+}
+
+.pokedex a {
+    color: #fff;
+}
+.button-next::before {
+    content: 'Next Pokemon';
+}
+.button-previous::before {
+    content: 'Previous Pokemon';
+}
+
+
+.pokemon-outer {
+    margin-bottom: 1rem;
+}
+.pokemon-image {
+    width: 100px;
+    height: 100px;
+}

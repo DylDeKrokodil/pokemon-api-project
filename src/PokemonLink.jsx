@@ -26,7 +26,7 @@ const PokemonLink = ({ pokemon }) => {
                     </div>
                     <div className="col-xl-6 col-md-12 col-12">
                         <div className="valign">
-                            <Link to={`/pokedex/${pokemonId}`} key={pokemonId}>{pokemon.name}</Link>   
+                            <Link className="bouncy" to={`/pokedex/${pokemonId}`} key={pokemonId}>{pokemon.name}</Link>   
                         </div>
                     </div>
                 </div>

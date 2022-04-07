@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import PokemonLink from "../PokemonLink";
 
 const Pokedex = () => {
-    const [count, setCount] = useState();
-    const [nextUrl, setNextUrl] = useState(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=50`);
+    let currentUrl = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=50`;
+    const [nextUrl, setNextUrl] = useState();
     const [previousUrl, setPreviousUrl] = useState(null);
-    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonList, setPokemonList] = useState([]);
 
     const getPokemon = async () => {
-        const response = await fetch(`${nextUrl}`);
+        const response = await fetch(`${currentUrl}`);
         const data = await response.json();
         
         setNextUrl(data.next);
         setPreviousUrl(data.previous);
-        setCount(data.count);
-        setPokemonData(data.results);
+        setPokemonList(data.results);
 
     }
     useEffect(() => {
@@ -24,18 +23,28 @@ const Pokedex = () => {
     const getNext = () => {
         if(nextUrl == null){
             alert(`There is no more pokemon to display`);
-        } else {
-            getPokemon();
+        } 
+        currentUrl = nextUrl;
+        getPokemon();
+    }
+    const getPrevious = () => {
+        if(previousUrl == null){
+            alert(`There is no more pokemon to display`);
         }
-    } 
+        currentUrl = previousUrl;
+        getPokemon();
+    }
 
     return (
-        <main>
+        <main className="pokedex">
             <div className="container-fluid">
+                <a className="button button-next bouncy" onClick={getNext}/>
+                <a className="button button-previous bouncy" onClick={getPrevious}/>
+
                 {
-                    pokemonData?.length > 0 ? (
+                    pokemonList?.length > 0 ? (
                         <div className="row">
-                            {pokemonData.map((pokemon) => (
+                            {pokemonList.map((pokemon) => (
                                 <PokemonLink key={pokemon.name} pokemon={pokemon}/>
                             ))}
                         </div>
@@ -43,7 +52,6 @@ const Pokedex = () => {
                         <div className="empty"><h1>No pokemon found!</h1></div>
                     )
                 }
-                <button onClick={getNext}>Get Next Pokemon</button>
             </div>
         </main>
     )
