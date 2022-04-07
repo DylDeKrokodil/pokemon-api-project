@@ -38,8 +38,8 @@ const Pokedex = () => {
     return (
         <main className="pokedex">
             <div className="container-fluid">
-                <a className="button button-next bouncy" onClick={getNext}/>
                 <a className="button button-previous bouncy" onClick={getPrevious}/>
+                <a className="button button-next float-right bouncy" onClick={getNext}/>
 
                 {
                     pokemonList?.length > 0 ? (

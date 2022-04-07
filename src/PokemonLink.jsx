@@ -18,19 +18,21 @@ const PokemonLink = ({ pokemon }) => {
     })
 
     return(
-        <div className="col-xl-2 col-md-3 col-4">
-            <div className="pokemon-outer">
-                <div className="row">
-                    <div className="col-xl-6 col-md-12 col-12">
-                        <img className="pokemon-image" alt={pokemon.name} src={pokemonImage}></img>
-                    </div>
-                    <div className="col-xl-6 col-md-12 col-12">
-                        <div className="valign">
-                            <Link className="bouncy" to={`/pokedex/${pokemonId}`} key={pokemonId}>{pokemon.name}</Link>   
+        <div className="col-xl-3 col-md-3 col-6">
+            <a href={`/pokedex/${pokemonId}`}>
+                <div className="pokemon-outer">
+                    <div className="row">
+                        <div className="col-xl-6 col-md-12 col-12 text-center">
+                            <img className="pokemon-image" alt={pokemon.name} src={pokemonImage}></img>
+                        </div>
+                        <div className="col-xl-6 col-md-12 col-12">
+                            <div className="valign text-center">
+                                {pokemon.name} 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     )
 }

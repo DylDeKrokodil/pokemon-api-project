@@ -1,6 +1,23 @@
 :root{
-    --grass: #7CFC00;
-    --poison: #7f01fe;
+    --normal: #a8a878;
+    --grass: #78C850;
+    --poison: #A040A0;
+    --fire: #F08030;
+    --flying: #A890F0;
+    --bug: #A8B820;
+    --electric: #F8D030;
+    --ground: #e0c068;
+    --fairy: #ee99ac;
+    --fighting: #c03028;
+    --psychic: #f85888;
+    --rock: #b8a038;
+    --steel: #b8b8d0;
+    --ice: #98d8d8;
+    --ghost: #705898;
+    --dragon: #7038f8;
+    --dark: #705848;
+    --water: #6890f0;
+    --unknown: #68a090;
 }
 
 *{
@@ -11,7 +28,7 @@
 
 html, body{
     font-family: 'Roboto', sans-serif;
-    background-color: #03002E;
+    background-color: #a6e9f5;
     color: #fff;
     
 }
@@ -38,7 +55,7 @@ a{
     animation:bouncy 5s infinite linear;
     position:relative;
 }
-@keyframes bouncy {
+@keyframes bouncy{
     0%{top:0em}
     40%{top:0em}
     43%{top:-0.9em}
@@ -50,6 +67,7 @@ a{
 .button-next{
     animation-delay: 0.07s;
 }
+
 .button-previous{
     animation-delay: 0.28s; 
 }
@@ -71,10 +89,15 @@ a.button{
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
+    box-shadow: 0.0px 0.0px 0.0px hsl(0deg 0% 0% / 0.50);
+
 }
+
 a.button:hover{
     color:#000000;
     background-color:#FFFFFF;
+    box-shadow: 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25);
+
 }
 @media all and (max-width:30em){
     a.button{
@@ -88,10 +111,56 @@ a.button:hover{
 .color-poison{
     color: var(--poison);
 }
-.color-gradient-grass-poison{
-    background-image: linear-gradient(to right, var(--grass), var(--poison));
+.color-rock{
+    color: var(--rock);
 }
-
-
+.color-ground{
+    color: var(--ground);
+}
+.color-psychic{
+    color: var(--psychic);
+}
+.color-ghost{
+    color: var(--ghost);
+}
+.color-bug{
+    color: var(--bug);
+}
+.color-ice{
+    color: var(--ice);
+}
+.color-steel{
+    color: var(--steel);
+}
+.color-fire{
+    color: var(--fire);
+}
+.color-water{
+    color: var(--water);
+}
+.color-electric{
+    color: var(--electric);
+}
+.color-fairy{
+    color: var(--fairy);
+}
+.color-dragon{
+    color: var(--dragon);
+}
+.color-dark{
+    color: var(--dark);
+}
+.color-fighting{
+    color: var(--fighting);
+}
+.color-normal{
+    color: var(--normal);
+}
+.color-flying{
+    color: var(--flying);
+}
+.color-unknown{
+	color: var(--unknown);
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

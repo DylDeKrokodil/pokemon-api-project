@@ -34,20 +34,19 @@ const PokemonDetail = () => {
         getPokemonDetail();
     },[]);
     
-    let gradientTypes = [];
     
     return (
         <main className="pokemon-detail">
             <div className="container-fluid">
                 <div className="row">
                     
-                    <h1 className={`i`}>{pokemonName}</h1>
+                    <h1>{pokemonName}</h1>
                     {  
                         pokemonTypes?.length > 0 ? (
                             <div className="col-xl-6 col-md-6 col-12">
                                 <ul>
                                 {pokemonTypes.map((types) => (
-                                    <li className={"color-" + types.type.name} key={types.type.name}>
+                                    <li className={`color-${types.type.name}`} key={types.type.name}>
                                         {types.type.name}
                                     </li>
                                 ))}
@@ -60,7 +59,7 @@ const PokemonDetail = () => {
 
                     {
                         pokemonStats?.length > 0 ? (
-                            <div className="col-xl-12 col-md-6 col-12">
+                            <div className="col-xl-6 col-md-6 col-12">
                                 <ul>
                                 {pokemonStats.map((stats) => (
                                     <li key={stats.stat.name}>
