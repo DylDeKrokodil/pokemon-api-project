@@ -1,33 +1,35 @@
-import { Outlet, Link } from "react-router-dom";
-import './css/main.css'
-import './css/header.css'
+import { NavLink, Outlet } from 'react-router-dom';
 
-export default function App() {
-  return (
-    
-    <>
-      <nav className='navbar'>
-        <div className='container-fluid'>
-          <div className='navbar-container'>
-            <div className='navbar-logo'>
-              <Link to="/">
-                <img src="#" alt="Logo"></img>
-              </Link>
-            </div>
-            <div className='navbar-content'>
-              <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/pokedex">Pokedex</Link>
-                  </li>
-              </ul>
-            </div>      
-          </div>
-        </div>
-      </nav>
-      <Outlet />
-    </>
-  );
+const App = () => {
+
+    return (
+        <>
+            <nav className='pokemon-menu'>
+                <div className='container-fluid'>
+                    <div className='row'>
+                        <div className='col-xl-3 col-md-2 col-2'>
+                            <NavLink to="/">
+                                <img src="#" alt="Logo"></img>
+                            </NavLink>
+                        </div>
+                        <div className='col-xl-9 col-md-10 col-10 text-end'>
+                            <div className='text-end valign'>
+                                <ul className='menu'>
+                                    <li className='menu-item'>
+                                        <NavLink to="/">Home</NavLink>
+                                    </li>
+                                    <li className='menu-item'>
+                                        <NavLink to="/pokedex">Pokedex</NavLink>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+            </nav>
+            <Outlet />
+        </>
+      );
 }
+
+export default App;

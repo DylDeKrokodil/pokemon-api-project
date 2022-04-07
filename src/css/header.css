@@ -1,28 +1,37 @@
-.navbar{
-    background-color: #E3350D ;
+.pokemon-menu{
+    background-color: #01001b ;
     padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.5rem; 
 }
-.navbar-container{
-    display: flex;
+.pokemon-menu ul{
+    margin: 0;
+}
+.pokemon-menu li {
+    display: inline-block;
+    margin-inline: 1rem;
+}
+.pokemon-menu a {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
 }
 
-.navbar-logo{
-    flex: 1 1 auto;
-}
-
-.navbar-content{
+.pokemon-navbar-content{
     margin-left: auto;
-    order: 2;
 }
-.navbar a {
-    color: #fff
-}
-.navbar-content a:hover {
+
+.pokemon-navbar-content a:hover {
     text-decoration: underline;
 }
 
-.navbar-content li {
+.menu-item {
     display: inline-block;
     padding-left: 1.3rem;
 }

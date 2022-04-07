@@ -1,31 +1,29 @@
-import { render } from "react-dom";
-import { 
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import App from "./App";
-import Pokedex from "./routes/pokedex";
-import Pokemon from "./routes/pokemon";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { BrowserRouter, Routes, Route, Navigate,  } from 'react-router-dom';
 
-const rootElement = document.getElementById("root");
-render(
+import Pokedex from './routes/pokedex';
+import PokemonDetail from './routes/pokemon-details';
+
+import './css/main.css';
+import './css/header.css';
+import './css/pokedex.css';
+import './css/pokemon-detail.css';
+
+
+ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="pokedex" element={<Pokedex />}>
-          <Route path=":dexId" element={<Pokemon />} />
+        <Route path='/' element={<App />}>
+          <Route path='/pokedex' element={<Pokedex />}/ >
+          
+          <Route path='/pokedex/:pokemonId' element={<PokemonDetail />} />
+
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
-        <Route 
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>Nope nothing here!</p>
-            </main>
-          }
-        />
-      </Route>
     </Routes>
   </BrowserRouter>,
-  rootElement
+  document.getElementById('root')
 );
+
