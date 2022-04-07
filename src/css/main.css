@@ -80,7 +80,7 @@ a.button:hover{
     a.button{
         display:block;
         margin:0.4em auto;
-    }
+    } 
 }
 .color-grass{
     color: var(--grass);
